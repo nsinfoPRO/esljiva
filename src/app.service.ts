@@ -67,8 +67,8 @@ export class AppService {
           '<br>',
       };
       this.transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-          console.log(error);
+        if (!!error) {
+          console.error('Greska prilikom slanja maila:', error);
           resolve({ response: 'errorSendingMail', error: error });
         } else {
           console.log('Message succesfuly sent: \n' + info.response);
